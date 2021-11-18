@@ -5,5 +5,12 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
+    const result = {};
 
+    for (const [key, value] of Object.entries(obj)) {
+        let index = fields.findIndex(item => item == key);
+        if (fields.includes(key)) result[key] = value;
+    }
+
+    return result;
 };
